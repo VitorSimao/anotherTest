@@ -7,7 +7,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/FitText.js/1.1/jquery.fittext.min.js"></script>
     <script>
       $(document).ready(function() {
-		  jQuery("#headline").fitText(1.4);
+		  jQuery("#headline").fitText(1.4, { minFontSize: '35px', maxFontSize: '63px' });
 		  $("#goat").html("<em>The greatest fighter of all time.</em>");
 		  $("#container-main").css("border-type","solid").css("border-radius","6px");
 		  $(".container-fluid").css("padding","49px").css("background-color","#F0F0F0");
@@ -30,10 +30,10 @@
       <!--<img class="img-responsive" src="/anderson_silva.png" alt="Anderson Silva"/>-->
       <figure style="background-color: white;">
 		<img id="as-pic" class="img-responsive" src="http://richestcelebrities.org/wp-content/uploads/2014/09/Anderson-Silva-Net-Worth.jpg" alt="Anderson Silva"/>
-		<figcaption id="caption-as1">Anderson Silva training for a fight in the Ultimate Fighting Championship.</figcaption>
+		<figcaption id="caption-as1">Anderson Silva training for a fight in the UFC.</figcaption>
       </figure>
       <p>
-		<h3>Mixed martial arts accomplishments:</h3>
+		<h3>Mixed martial arts achievements:</h3>
 		<ul>
 			<li><b><a href="https://en.wikipedia.org/wiki/Shooto" title="Shooto">Shooto</a></b>
 				<ul>
@@ -79,7 +79,7 @@
 		  <span id="quote">"I think you should try... not try to be better than everyone around you, but try to be better than yourself everyday."</span> - <i style="color: gray">Anderson Silva</i>
       </p>
     </div>
-    <hr></hr>
+    <hr style="border-top: 1px solid gainsboro"></hr>
 	<footer>
 		<p id="footer" style="text-align: center;">Tribute by Victor Simon</p>
 	</footer>
