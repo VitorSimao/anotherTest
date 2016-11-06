@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="ENG">
+	<head>
+		<meta charset="UTF-8">
+		<title>A Test</title>
+	</head>
+	<body>
+		<script>
+			var myGlobal = 10;
+			//var oopsGlobal = 5;
+			function fun1(){
+				oopsGlobal = 5;
+			};
+
+			function fun2(){
+				var output = "";
+				if(typeof myGlobal != "undefined"){
+				output += "myGlobal: " + myGlobal;
+			  };
+			  if(typeof oopsGlobal != "undefined"){
+				output += " oopsGlobal: " + oopsGlobal;
+			  };
+			  document.write(output);
+			};
+			
+			fun2();
+			
+			
+			// Setup
+			var myArray = [["John", 23], ["cat", 2]];
+
+			// Only change code below this line.
+			/*var removedFromMyArray;
+			removedFromMyArray = myArray.pop();
+			
+			document.write(" ", removedFromMyArray);*/
+			
+			myArray.push(["dog", 3]);
+			myArray[2][1] = 4;
+			console.log(myArray);
+			
+			var itemFromArray = myArray[1][0];
+			document.write(" ", itemFromArray);
+			
+			document.write(" myArray: ", JSON.stringify(myArray));
+			
+			
+			function nextInLine(arr, item) {
+			  // Your code here
+			  arr.push(item);
+			  return arr.shift();  // Change this line
+			}
+
+			// Test Setup
+			var testArr = [1,2,3,4,5];
+			
+			testArr[5] = 6;
+
+			// Display Code
+			console.log("Before: " + JSON.stringify(testArr));
+			console.log(nextInLine(testArr, 7)); // Modify this line to test
+			console.log("After: " + JSON.stringify(testArr));
+			
+			
+			function trueOrFalse(wasThatTrue) {
+
+			  // Only change code below this line.
+			  if(wasThatTrue){//if(wasThatTrue === true){
+				return " Yes, that was true";
+			  }
+			  return " No, that was false";
+			  
+			  // Only change code above this line.
+
+			}
+
+			// Change this value to test
+			document.write(trueOrFalse(false));
+			
+			
+			function golfScore(par, strokes) {
+			  // Only change code below this line
+			  if(par == strokes && par >= 1 && strokes !=1){
+				return "Par";
+			  }else if(strokes == 1 && par >= 1){
+				return "Hole-in-one!";
+			  }else if(strokes == par - 1){
+				return "Birdie";
+			  }else if(strokes <= par - 2){
+				return "Eagle";
+			  }else if(strokes == par + 1){
+				return "Bogey";
+			  }else if(strokes == par + 2){
+				return "Double Bogey";
+			  }else if(strokes >= par + 3){
+				return "Go Home!";
+			  }
+			  
+			  return "Change Me";
+			  // Only change code above this line
+			}
+
+			// Change these values to test
+			document.write(" A 4 stroke completion of a par 5 course is called a ", golfScore(5, 4));
+			
+			
+			function caseInSwitch(val) {
+			  var answer = "";
+			  // Only change code below this line
+			  switch(val){
+				case 1:
+					answer = "alpha";
+					break;
+				case 2:
+					answer = "beta";
+					break;
+				case 3:
+					answer = "gamma";
+					break;
+				case 4:
+					answer = "delta";
+					break;
+				default:
+					answer = "greek";
+			  }
+ 
+			  // Only change code above this line  
+			  return answer;  
+			}
+
+			// Change this value to test
+			caseInSwitch(1);
+			
+			
+			function sequentialSizes(val) {
+			  var answer = "";
+			  // Only change code below this line
+			  switch(val){
+				case 1:
+				case 2:
+				case 3:
+			 
+				  answer = "Low";
+				  break;
+				  
+				case 4:
+				case 5:
+				case 6:
+				  answer = "Mid";
+				  break;
+				  
+				case 7:
+				case 8:
+				case 9:
+				  answer = "High";
+				  break;
+			  }
+			  // Only change code above this line  
+			  return answer;  
+			}
+
+			// Change this value to test
+			sequentialSizes(1);
+			
+			
+			function chainToSwitch(val) {
+			  var answer = "";
+			  // Only change code below this line
+			  switch(val){
+				case "bob":
+				  answer = "Marley";
+				  break;
+				case 42:
+				  answer = "The Answer";
+				  break;
+				case 1:
+				  answer = "There is no #1";
+				  break;
+				case 99:
+				  answer = "Missed me by this much!";
+				  break;
+				case 7:
+				  answer = "Ate Nine";
+			  // Only change code above this line
+			  }
+			  return answer;  
+			}
+
+			// Change this value to test
+			chainToSwitch(7);
+			
+			
+			// Setup
+			function abTest(a, b) {
+			  // Only change code below this line
+			  if(a < 0 || b < 0){//IMPORTANT!!! Both a and b must be compared; if(a || b < 0) will not work.
+				return undefined;
+			  }
+			  
+			  // Only change code above this line
+
+			  return Math.round(Math.pow(Math.sqrt(a) + Math.sqrt(b), 2));
+			}
+
+			// Change values below to test your code
+			abTest(2,2);
+			
+			
+			// Setup
+			var count = 0;
+			
+			function cc(card) {
+			  // Only change code below this line
+			  var bhh = "";
+			  if(count > 0){
+				bhh = "Bet";
+			  }else bhh = "Hold";
+			  
+			  if(card == 2 || card == 3 || card == 4 || card == 5 || card == 6){
+				count++ ;
+				return count + " " + bhh;
+			  }else
+				if(card == 10 || card == 'J' || card == 'Q' || card == 'K' || card == 'A'){
+				count-- ;
+				return count + " " + bhh;
+			  }else
+				if(card == 7 || card == 8 || card == 9){
+				return count + " " + bhh;
+			  }
+			  
+			  // Only change code above this line
+			}
+
+			// Add/remove calls to test your function.
+			// Note: Only the last will display
+			cc(2); cc(2); cc(10);
+
+		</script>
+	</body>
+</html>
