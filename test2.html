@@ -2,10 +2,12 @@
 <html lang="ENG">
 	<head>
 		<meta charset="UTF-8">
+		<meta name="content" viewport="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="/css/test.css"/>
 		<title>A Test</title>
 	</head>
-	<body>
-		<script>
+	<body class="drawing">
+		<script type="text/javascript">
 			var myGlobal = 10;
 			//var oopsGlobal = 5;
 			function fun1(){
@@ -193,7 +195,7 @@
 			// Setup
 			function abTest(a, b) {
 			  // Only change code below this line
-			  if(a < 0 || b < 0){//IMPORTANT!!! Both a and b must be compared; if(a || b < 0) will not work.
+			  if(a < 0 || b < 0){//IMPORTANT!!! Both a and b must be compared seperately; if(a || b < 0) will not work.
 				return undefined;
 			  }
 			  
@@ -231,10 +233,575 @@
 			  // Only change code above this line
 			}
 
-			// Add/remove calls to test your function.
+			// Add/remove calls to test your function
 			// Note: Only the last will display
 			cc(2); cc(2); cc(10);
+			
+			
+			var myDog = {//An object
+			  "name": "Fido",
+			  "number of legs": 4,
+			  "tails": 1,
+			  "friends": ["Rover", "Max", "Buddy"]
+			};
+			
+			myDog.name = "Snoopy";//changing a property with dot notation.
+			myDog["name"] = "Bart";//changing a property with bracket notation.
+			myDog.bark = "Woof";//adding a property with dot notation is done the same way as changing a property.
+			myDog.master = ["Me"];//adding another array with a value.
+			delete myDog.tails;//deleting a property.
+			
+			var myDogName = myDog.name;
+			var myDogsFriends = myDog["friends"];
+			
+			document.write(myDogsFriends);
+			document.write(myDogName);
+			document.write(myDog.master);
+			
+			document.write(myDog.bark);//I can output this property without having to make a variable like I did above.
+			
+			// Setup
+			var testObj = {
+			  12: "Namath",
+			  16: "Montana",
+			  19: "Unitas"
+			};
 
+			// Only change code below this line;
+
+			var playerNumber = 16;       // Change this Line
+			var player = testObj[playerNumber];   // Change this Line
+			
+			
+			// Setup
+			function phoneticLookup(val) {
+			  var result = "";
+
+			  // Only change code below this line
+			  var lookup = {
+				  "alpha": "Adams",
+				  "bravo": "Boston",
+				  "charlie": "Chicago",
+				  "delta": "Denver",
+				  "echo": "Easy",
+				  "foxtrot": "Frank"
+			  };
+			  result = lookup[val];
+
+			  // Only change code above this line
+			  return result;
+			}
+
+			// Change this value to test
+			phoneticLookup("charlie");
+			
+			
+			// Setup
+			var myObj = {
+			  gift: "pony",
+			  pet: "kitten",
+			  bed: "sleigh"
+			};
+
+			function checkObj(checkProp) {
+			  // Your Code Here
+			  if(myObj.hasOwnProperty(checkProp)){
+				return myObj[checkProp];
+			  }else{
+				return "Not Found";
+			  }
+			  
+			}
+
+			// Test your code by modifying these values
+			checkObj("gift");
+			
+			
+			// Setup
+			var myStorage = {
+			  "car": {
+				"inside": {
+				  "glove box": "maps",
+				  "passenger seat": "crumbs"
+				 },
+				"outside": {
+				  "trunk": "jack"
+				}
+			  }
+			};
+
+			// Only change code below this line
+
+			var gloveBoxContents = myStorage.car.inside["glove box"]; // Change this line
+			
+			
+			// Setup
+			var myPlants = [
+			  { 
+				type: "flowers",
+				list: [
+				  "rose",
+				  "tulip",
+				  "dandelion"
+				]
+			  },
+			  {
+				type: "trees",
+				list: [
+				  "fir",
+				  "pine",
+				  "birch"
+				]
+			  }  
+			];
+
+			// Only change code below this line
+
+			var secondTree = myPlants[1].list[1]; // Change this line. This accesses pine.
+			
+			
+			var collection = {
+				"2548": {
+				  "album": "Slippery When Wet",
+				  "artist": "Bon Jovi",
+				  "tracks": [ 
+					"Let It Rock", 
+					"You Give Love a Bad Name" 
+				  ]
+				},
+				"2468": {
+				  "album": "1999",
+				  "artist": "Prince",
+				  "tracks": [ 
+					"1999",
+					"Little Red Corvette" 
+				  ]
+				},
+				"1245": {
+				  "artist": "Robert Palmer",
+				  "tracks": [ ]
+				},
+				"5439": {
+				  "album": "ABBA Gold"
+				}
+			};
+						
+			// Keep a copy of the collection for tests
+			var collectionCopy = JSON.parse(JSON.stringify(collection));
+
+			// Only change code below this line
+			function updateRecords(id, prop, value) {
+				if(prop == "artist" ){
+					collection[id][prop] = value;
+					//collection["5439"][artist] = "ABBA";
+				}else if(prop == "tracks" && collection[id][prop]/*e.g. collection["1245"].tracks*/ !== undefined){
+					collection[id][prop].push(value);
+					//collection["1245"].tracks.push("Addicted to Love");
+				}else if(prop == "tracks" && "tracks" !== "") {
+					collection[id][prop] = [value];//creates the tracks array and assigns a value.
+					//collection["5439"].tracks = ["Take A Chance on Me"];
+				}
+				if(value === ""){
+					delete collection[id][prop];	
+				}
+				return collection;
+			}
+			
+			updateRecords(2548, "tracks", "");
+			document.write(JSON.stringify(collection));
+			
+			
+			var myArray = [];
+			
+			for(i=1; i<=7; i++ /*i=i+1*/){
+				myArray.push(i);
+				}
+				
+			document.write(JSON.stringify(myArray));
+			
+			
+			var myArray2 = [];
+			
+			for(i=1; i<10; i+=2 /*i=i+2*/){
+				myArray2.push(i);
+				}
+				
+			document.write(JSON.stringify(myArray2));
+			
+			
+			var myArray3 = [];
+
+			for(i=9; i>0; i-=2){
+			  myArray3.push(i);
+			}
+	
+			document.write(myArray3);
+			
+			
+			var myArray4 = [2,3,4,5,6];
+			var total = 0;
+			
+			for(i=0; i<myArray4.length; i++){
+				total += myArray4[i];//total = total + myArray4[i];
+				}
+			
+			document.write(" " + total);
+			
+			
+			var arr = [[1,2], [3,4], [5,6]];
+			for(var i=0; i < arr.length; i++) {
+				//document.write(JSON.stringify(arr[i]));//outputs: [1,2] [3,4] [5,6]
+				for(var j=0; j<arr[i].length; j++){
+					document.write(" " + arr[i][j]);//outputs: 1 2 3 4 5 6
+				}
+			}
+			
+			
+			function multiplyAll(arr2) {
+			  var product = 1;
+			  for (var i=0; i<arr2.length; i++) {
+				for (var j=0; j<arr2[i].length; j++) {                
+				  product *= arr2[i][j]; 
+				}
+			  }
+			  return product; 
+			}
+			document.write(" " + multiplyAll([[1,2],[3,4],[5,6,7]]));//outputs 5040 from 1 * 1 * 1 * 2 * 1 * 3 * 1 * 4 ...
+			
+			
+			//an array and for-loop is used below like in the above function.
+			var array2 = [[1,2],[3,4],[5,6,7]];
+			document.write(" "+array2.length+" ");//outputs 3 - representing the three sub-arrays: [1,2],[3,4],[5,6,7].
+			document.write(" LOOK HERE!");
+			for(i=0; i<array2.length; i++){//the conditional statement can also be i<3. See the above comment.
+				//document.write(array2[i].length);//outputs 223; 2 values in [1,2], 2 values in [3,4], and 3 values in [5,6,7].
+				for (var j=0; j<array2[i].length; j++) {
+						document.write(array2[i][j]);
+				}
+			}
+			
+			document.write(" "+array2[1].length+" ");//outputs 2 - representing the two values: [3,4].
+			
+			
+			// Setup
+			var myArray = [];
+
+			// Only change code below this line.
+			var i = 0;
+			while(i < 5){
+			  myArray.push(i);
+			  i++;
+			}
+			
+			
+			//Setup
+			var contacts = [
+				{
+					"firstName": "Akira",
+					"lastName": "Laine",
+					"number": "0543236543",
+					"likes": ["Pizza", "Coding", "Brownie Points"]
+				},
+				{
+					"firstName": "Harry",
+					"lastName": "Potter",
+					"number": "0994372684",
+					"likes": ["Hogwarts", "Magic", "Hagrid"]
+				},
+				{
+					"firstName": "Sherlock",
+					"lastName": "Holmes",
+					"number": "0487345643",
+					"likes": ["Intriguing Cases", "Violin"]
+				},
+				{
+					"firstName": "Kristian",
+					"lastName": "Vos",
+					"number": "unknown",
+					"likes": ["Javascript", "Gaming", "Foxes"]
+				}
+			];
+			
+			document.write(contacts[3]["likes"]);
+
+			function lookUpProfile(firstName, prop){
+				for (var i = 0; i < contacts.length; i++){
+					if(contacts[i].firstName == firstName){
+						if(contacts[i].hasOwnProperty(prop)){
+							return contacts[i][prop];
+						}else{
+							return "No such property";
+						}
+					}
+				}return "No such contact";
+			}
+			document.write(lookUpProfile("Kristian", "lastName"));
+			
+			
+			var randomNumberBetween0and19 = Math.floor(Math.random() * 20);//result of Math.random must be between 0.99 and 1.
+
+			function randomWholeNum() {
+
+			  // Only change code below this line.
+
+			  return 1 * Math.floor(Math.random() * 10);
+			}
+			
+			
+			function randomRange(myMin, myMax) {
+				return Math.floor(Math.random() * (myMax - myMin + 1) + myMin);//results in a whole number within a specified range.
+			}
+			// Change these values to test your function
+			var myRandom = randomRange(5, 15);
+			
+
+			// Setup
+			var testString = "Ada Lovelace and Charles Babbage designed the first computer and the software that would have run on it.";
+
+			// Example
+			var expressionToGetSoftware = /software/gi;
+			var softwareCount = testString.match(expressionToGetSoftware).length;
+
+			var expression = /and/gi;	//Looks for the word "and" globally(g), meaning in the entire string and not just the first instance.
+										//The expression also ignores the case(i).
+
+			// This code counts the matches of expression in testString
+			var andCount = testString.match(expression).length;
+			
+			
+			// Setup
+			var testString = "There are 3 cats but 4 dogs.";
+
+			var expression = /\d+/g;  // Looks for digits(\d+) globally throughout the string.
+
+			//Other regular expressions include \s, \r, \n, and \f. Invert regular expressions include \S, \R...
+
+			// This code counts the matches of expression in testString
+			var digitCount = testString.match(expression).length;
+			
+			var siblings = [
+				{
+				"name":"Simon",
+				"age":"37",
+				"sex":"male"
+				},
+				
+				{
+				"name":"William",
+				"age":"25",
+				"sex":"male"
+				},
+				
+				{
+				"name":"Sara",
+				"age":"32",
+				"sex":"female"
+				}
+			];
+			
+			var listSiblings = function(){
+				for(var i=0; i<siblings.length; i++){
+					for(var prop in siblings[i]){
+						if(siblings[i].hasOwnProperty(prop)){
+							document.write(siblings[i][prop]);
+						}
+					}
+				}
+			}
+			listSiblings();
+			
+			function siblingsLookup(name, prop){
+				for(var i=0; i<siblings.length; i++){
+					if(name == siblings[i].name){
+						if(siblings[i].hasOwnProperty(prop)){
+							return siblings[i][prop];
+						}else{
+							return "No such property";
+						}
+					}
+				}return "No such name";
+			}
+			document.write(siblingsLookup("Simon", "age"));
+			
+			
+			var Car = function() {//a constructor function used to make an object. Constructors should start with a capital letter.
+			  this.wheels = 4;
+			  this.engines = 1;
+			  this.seats = 5;
+			};
+			
+			
+			var myCar = new Car();//creates a new instance of the Car constructor that can be used as a regular object.
+			myCar.seats = 4;
+			myCar.nickname = "Kit";
+			
+			document.write(myCar.nickname);
+			
+			
+			var Car2 = function(wheels, seats, engines) {//parameters can be added for the new instance below to modify.
+
+			  this.wheels = wheels;
+			  this.seats = seats;
+			  this.engines = engines;
+			};
+
+			var myCar2 = new Car2(4, 4, 1);
+			
+			document.write(myCar2.engines);
+			
+			
+			var Car = function() {
+			  // below is a private variable. Private properties within a constructor can be created with var. Private methods can also be created with var.
+			  var speed = 10;
+
+			  // these are public methods. A function within an object is called a method.
+			  this.accelerate = function(change) {
+				speed += change;
+			  };
+
+			  this.decelerate = function() {
+				speed -= 5;
+			  };
+
+			  this.getSpeed = function() {
+				return speed;
+			  };
+			};
+
+			var Bike = function() {
+
+			  // Only change code below this line.
+			  var gear = "";
+			  
+			  this.setGear = function(change){
+				gear = change;
+			  };
+			  
+			  this.getGear = function(){
+				return gear;
+			  };
+
+			};
+
+			var myCar = new Car();
+
+			var myBike = new Bike();
+			
+			
+			var oldArray = [1, 2, 3];
+			var timesFour = oldArray.map(function(val){
+			  return val * 4;
+			  //The map method iterates through the array, creating a new array with values that have been modified by the callback function, and return it. 
+			});
+			document.write(timesFour); // returns [4, 8, 12]
+			document.write(oldArray);  // returns [1, 2, 3]
+			
+			
+			var oldArray = [1,2,3,4,5];
+
+			// Only change code below this line.
+			var oldPlusThree = oldArray.map(function(val){
+			  return val + 3;
+			});
+
+			var newArray = oldPlusThree;
+			
+
+			var array = [4,5,6,7,8];
+			var singleVal = 0;
+			
+			var reducedArray = array.reduce(function(val){
+				return val;	
+			});
+
+			// Only change code below this line.
+			var sumOfArray = array.reduce(function(previousVal, currentVal) {
+			  return previousVal + currentVal;});
+
+			singleVal = sumOfArray;
+			
+			//both the map and reduce methods use callback functions.
+			
+			
+			var oldArray2 = [1,2,3,4,5,6,7,8,9,10];
+
+			// Only change code below this line.
+			var filteredArray = oldArray2.filter(function(val){
+			  return val < 6;
+			});
+			var newArray = filteredArray;
+			
+			
+			var array3 = [1, 12, 21, 2];
+
+			// Only change code below this line.
+
+			array3.sort(function(b, a) {
+			  return b - a;//this returns array3 with the values arranged from largest to smallest.
+			  //a - b would return smallest to largest unless the order of the parameters above where changed.
+			});
+			
+			
+			var array4 = [1,2,3,4,5,6,7];
+			var newArray4 = [];
+
+			// Only change code below this line.
+
+			newArray4 = array4.reverse();
+			
+			//both the sort and reverse methods MODIFY the array, NOT the map and filter methods.
+			
+			
+			var oldArray5 = [1,2,3];
+			var newArray5 = [];
+
+			var concatMe = [4,5,6];
+
+			// Only change code below this line.
+
+			newArray = oldArray5.concat(concatMe);
+			
+			
+			var string = "Split me into an array";
+			var array = [];
+
+			// Only change code below this line.
+
+			array = string.split(" ");	//splits the STRING at every space and turns the partitions into arrays.
+										//the parameter "a" would split the string at every letter "a".
+			
+			var joinMe = ["Split","me","into","an","array"];
+			var joinedString = '';
+
+			// Only change code below this line.
+
+			joinedString = joinMe.join(" ");//joins elements in an array to make a string with a space in between each element.
+			
+			
+			function reverseString(str) {
+				var anArray = [];
+				anArray = str.split("");
+				anArray.reverse();
+				aNewString = anArray.join("");
+				str = aNewString;
+				return str;
+			}
+
+			reverseString("hello");
+			
+			//Below is a better way of doing the above shit.
+			
+			var stringReverse = function(aString){
+				var testArray = aString.split("");
+				testArray.reverse();
+				aString = testArray.join("");
+				return aString;
+			};
+			
+			stringReverse("coldplay");
+			
+			
+	
 		</script>
 	</body>
 </html>
