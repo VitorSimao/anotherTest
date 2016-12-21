@@ -820,7 +820,7 @@
 				\W Find a non-word character
 				| Find any of the alternatives specified; in the above case it's an underscore: |_
 				/g Perform a global match (find all matches rather than stopping after the first match)
-				"" Don't use any spaces
+				, "" Replace with no spaces. 
 				*/
 				str.toLowerCase().replace(/\W|_/g, "").split("").reverse().join("");
 			};
