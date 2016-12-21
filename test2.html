@@ -767,7 +767,7 @@
 
 			// Only change code below this line.
 
-			array = string.split(" ");	//splits the STRING at every space and turns the partitions into arrays.
+			array = string.split(" ");	//splits the STRING at every space and turns the partitions into an array.
 										//the parameter "a" would split the string at every letter "a".
 			
 			var joinMe = ["Split","me","into","an","array"];
@@ -799,6 +799,32 @@
 			};
 			
 			stringReverse("coldplay");
+			
+			
+			var factorialize = function(num){
+				if(num === 0){
+					return 1;
+				}else{
+					for(var i = num - 1; i <= num && i >= 1; i--){//i = num; i < num; will not work because it contradicts itself. 
+						num = num * i;//or num *=
+					}
+				}return num;
+			};
+			console.log(factorialize(5));
+			
+			
+			var palindrome = function(str){
+				return str.toLowerCase().replace(/\W|_/g, "") ===
+				/*
+				The syntax for a new RegExp is ("\\w") or simply:/\w/. Below is an explanation for the above example.
+				\W Find a non-word character
+				| Find any of the alternatives specified; in the above case it's an underscore: |_
+				/g Perform a global match (find all matches rather than stopping after the first match)
+				"" Don't use any spaces
+				*/
+				str.toLowerCase().replace(/\W|_/g, "").split("").reverse().join("");
+			};
+			console.log(palindrome("eye"));
 			
 			
 	
