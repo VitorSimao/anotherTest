@@ -601,7 +601,7 @@
 			
 			var listSiblings = function(){
 				for(var i=0; i<siblings.length; i++){
-					for(var prop in siblings[i]){
+					for(var prop in siblings[i]){//prop replaces "name", "age", "sex" as i iterates through each of the 3 props in all 3 objects.
 						if(siblings[i].hasOwnProperty(prop)){
 							document.write(siblings[i][prop]);
 						}
